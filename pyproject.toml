@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "poppy-playtime-ch5-trainer"
+version = "1.4.2"
+description = "External memory trainer / overlay toolkit for Poppy Playtime Chapter 5 (2026)"
+requires-python = ">=3.10"
+authors = [{ name = "pp-ch5-trainer contributors" }]
+
+[project.scripts]
+ppch5-trainer = "trainer_core.bootstrap:main"
+
+[tool.setuptools.packages.find]
+include = ["trainer_core*", "overlay*", "memory*"]
