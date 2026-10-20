@@ -1,0 +1,9 @@
+# Poppy Playtime - Chapter 5 Trainer runtime deps
+pywin32>=306
+pymem>=1.12.0
+keyboard>=0.13.5
+pygame>=2.5.2
+colorama>=0.4.6
+requests>=2.31.0
+pyyaml>=6.0.1
+numpy>=1.26.0
