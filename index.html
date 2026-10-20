@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poppy Playtime Chapter 5 Trainer — Godmode, ESP, Lua Injector</title>
+<meta name="description" content="Poppy Playtime Chapter 5 trainer for Windows: godmode, infinite batteries, one-hit kill, speed hack, item ESP, and a Lua injector for custom cheats.">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg-0:#070a17;
+    --bg-1:#0d1230;
+    --bg-2:#161a3a;
+    --ink:#eef1ff;
+    --muted:#9aa3c7;
+    --line:rgba(255,255,255,.09);
+    --accent:#7c5cff;
+    --accent-2:#2fd3ff;
+    --accent-3:#ff5c94;
+    --glow:rgba(124,92,255,.35);
+  }
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(1100px 600px at 12% -8%, rgba(124,92,255,.28), transparent 60%),
+      radial-gradient(900px 520px at 88% 4%, rgba(47,211,255,.18), transparent 60%),
+      radial-gradient(800px 700px at 50% 110%, rgba(255,92,148,.14), transparent 65%),
+      linear-gradient(160deg,#070a17 0%,#0c1030 42%,#131a3d 72%,#0a0d22 100%);
+    background-attachment:fixed;
+    min-height:100vh;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{width:100%;max-width:1140px;margin:0 auto;padding:0 22px}
+
+  /* ---------- NAV ---------- */
+  .nav-outer{position:sticky;top:0;z-index:50;padding:14px 0}
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;gap:18px;
+    padding:12px 18px;
+    border:1px solid var(--line);
+    border-radius:16px;
+    background:rgba(16,20,45,.55);
+    backdrop-filter:blur(16px) saturate(160%);
+    -webkit-backdrop-filter:blur(16px) saturate(160%);
+    box-shadow:0 12px 40px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.06);
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px;font-size:1.02rem;white-space:nowrap}
+  .brand-mark{
+    width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-size:.95rem;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    box-shadow:0 0 18px var(--glow);
+  }
+  .brand span{background:linear-gradient(90deg,#fff,#b9c2ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .nav-links{display:flex;align-items:center;gap:26px;font-size:.92rem;color:var(--muted)}
+  .nav-links a{position:relative;transition:color .2s}
+  .nav-links a:hover{color:#fff}
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width .25s;border-radius:2px;
+  }
+  .nav-links a:hover::after{width:100%}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    font-weight:700;font-size:.95rem;border-radius:12px;padding:12px 20px;
+    border:1px solid transparent;cursor:pointer;transition:transform .18s,box-shadow .25s,background .25s,border-color .25s;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    color:#0a0a18;
+    background:linear-gradient(135deg,#8b6bff,#39d8ff 90%);
+    box-shadow:0 10px 30px rgba(88,120,255,.4), inset 0 1px 0 rgba(255,255,255,.5);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(88,120,255,.6)}
+  .btn-ghost{
+    color:#dfe4ff;background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.16);
+  }
+  .btn-ghost:hover{transform:translateY(-2px);background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.3)}
+  .nav .btn{padding:10px 18px;font-size:.9rem}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:72px 0 40px;text-align:center;position:relative}
+  .pill{
+    display:inline-flex;align-items:center;gap:9px;
+    padding:8px 16px;border-radius:999px;font-size:.8rem;font-weight:600;letter-spacing:.4px;
+    color:#cfd6ff;text-transform:uppercase;
+    border:1px solid rgba(124,92,255,.45);
+    background:linear-gradient(90deg,rgba(124,92,255,.16),rgba(47,211,255,.1));
+    box-shadow:0 0 24px rgba(124,92,255,.22);
+  }
+  .dot{width:7px;height:7px;border-radius:50%;background:#4be2a1;box-shadow:0 0 10px #4be2a1;animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.82)}}
+  h1{
+    margin:24px auto 18px;max-width:900px;
+    font-size:clamp(2.1rem,5.6vw,4rem);line-height:1.08;letter-spacing:-1.4px;font-weight:800;
+  }
+  .grad{
+    background:linear-gradient(100deg,#ffffff 0%,#a99bff 38%,#4fd8ff 68%,#ff7fb0 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .lede{max-width:660px;margin:0 auto;color:var(--muted);font-size:1.06rem}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin:32px 0 40px}
+  .hero-cta .btn{padding:15px 28px;font-size:1rem}
+  .chips{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+  .chip{
+    display:flex;align-items:center;gap:9px;font-size:.85rem;color:#c6cdf0;
+    padding:10px 16px;border-radius:12px;border:1px solid var(--line);
+    background:rgba(255,255,255,.035);backdrop-filter:blur(6px);
+  }
+  .chip b{color:#fff;font-weight:700}
+  .chip em{font-style:normal;font-size:1rem}
+
+  /* ---------- SECTION HEADERS ---------- */
+  section{padding:64px 0}
+  .sec-head{text-align:center;max-width:640px;margin:0 auto 44px}
+  .kicker{
+    font-size:.76rem;text-transform:uppercase;letter-spacing:2.4px;font-weight:700;
+    color:var(--accent-2);margin-bottom:12px;
+  }
+  h2{font-size:clamp(1.6rem,3.4vw,2.35rem);letter-spacing:-.8px;font-weight:800;line-height:1.18}
+  .sec-head p{color:var(--muted);margin-top:12px;font-size:.98rem}
+
+  /* ---------- FEATURES ---------- */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .card{
+    position:relative;padding:26px 22px 24px;border-radius:16px;overflow:hidden;
+    border:1px solid var(--line);
+    background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
+    backdrop-filter:blur(8px);
+    transition:transform .25s ease,box-shadow .3s ease,border-color .25s ease;
+  }
+  .card::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    opacity:.95;
+  }
+  .card:nth-child(2n)::before{background:linear-gradient(90deg,var(--accent-2),#4be2a1)}
+  .card:nth-child(3n)::before{background:linear-gradient(90deg,var(--accent-3),var(--accent))}
+  .card:hover{transform:translateY(-7px);border-color:rgba(124,92,255,.5);box-shadow:0 22px 48px rgba(10,12,40,.7),0 0 0 1px rgba(124,92,255,.18)}
+  .card .ico{
+    width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:1.4rem;
+    background:rgba(124,92,255,.14);border:1px solid rgba(124,92,255,.3);margin-bottom:16px;
+  }
+  .card h3{font-size:1.06rem;font-weight:750;margin-bottom:8px;letter-spacing:-.2px}
+  .card p{color:var(--muted);font-size:.9rem;line-height:1.62}
+
+  /* ---------- HOW IT WORKS ---------- */
+  .steps{position:relative;max-width:760px;margin:0 auto;padding-left:26px}
+  .steps::before{
+    content:"";position:absolute;left:26px;top:14px;bottom:14px;width:2px;
+    background:linear-gradient(180deg,var(--accent),var(--accent-2) 55%,transparent);
+    border-radius:2px;opacity:.85;
+  }
+  .step{position:relative;padding:0 0 34px 46px}
+  .step:last-child{padding-bottom:0}
+  .step .num{
+    position:absolute;left:-2px;top:-2px;width:36px;height:36px;border-radius:50%;
+    display:grid;place-items:center;font-weight:800;font-size:.9rem;color:#0a0a18;
+    background:linear-gradient(135deg,#8b6bff,#39d8ff);
+    box-shadow:0 0 0 5px rgba(11,14,35,.95),0 0 22px var(--glow);
+  }
+  .step h3{font-size:1.05rem;margin-bottom:6px;font-weight:750}
+  .step p{color:var(--muted);font-size:.93rem}
+  .step code{
+    font-family:ui-monospace,Consolas,monospace;font-size:.83rem;color:#b6c4ff;
+    background:rgba(124,92,255,.14);border:1px solid rgba(124,92,255,.25);
+    padding:2px 7px;border-radius:6px;
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+  details{
+    border:1px solid var(--line);border-radius:14px;overflow:hidden;
+    background:rgba(255,255,255,.035);
+    transition:border-color .25s,background .25s;
+  }
+  details[open]{border-color:rgba(124,92,255,.45);background:rgba(124,92,255,.07)}
+  summary{
+    list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;
+    padding:18px 20px;font-weight:650;font-size:.98rem;
+  }
+  summary::-webkit-details-marker{display:none}
+  .plus{
+    position:relative;flex:0 0 22px;width:22px;height:22px;border-radius:7px;
+    background:rgba(124,92,255,.18);border:1px solid rgba(124,92,255,.35);
+    transition:transform .3s ease,background .3s;
+  }
+  .plus::before,.plus::after{
+    content:"";position:absolute;top:50%;left:50%;background:#c6cdff;border-radius:2px;
+    transform:translate(-50%,-50%);transition:opacity .25s;
+  }
+  .plus::before{width:11px;height:2px}
+  .plus::after{width:2px;height:11px}
+  details[open] .plus{transform:rotate(135deg);background:rgba(47,211,255,.22);border-color:rgba(47,211,255,.5)}
+  details[open] .plus::after{opacity:0}
+  .faq-body{padding:0 20px 20px;color:var(--muted);font-size:.92rem;line-height:1.68}
+
+  /* ---------- CTA BANNER ---------- */
+  .cta-card{
+    position:relative;overflow:hidden;text-align:center;border-radius:24px;
+    padding:60px 26px;border:1px solid rgba(124,92,255,.35);
+    background:linear-gradient(150deg,rgba(124,92,255,.2),rgba(47,211,255,.09) 55%,rgba(255,92,148,.13));
+    box-shadow:0 30px 80px rgba(8,10,30,.7), inset 0 1px 0 rgba(255,255,255,.09);
+  }
+  .cta-card::before{
+    content:"";position:absolute;left:50%;top:-140px;transform:translateX(-50%);
+    width:640px;height:640px;border-radius:50%;pointer-events:none;
+    background:radial-gradient(circle,rgba(124,92,255,.5),rgba(47,211,255,.16) 45%,transparent 68%);
+    filter:blur(10px);
+  }
+  .cta-card > *{position:relative;z-index:1}
+  .cta-card h2{margin-bottom:12px}
+  .cta-card p{color:#c3cbf0;max-width:520px;margin:0 auto 28px;font-size:.98rem}
+  .cta-note{margin-top:16px;font-size:.78rem;color:#8f99c4;letter-spacing:.3px}
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--line);padding:30px 0 42px;margin-top:20px}
+  .foot{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:.85rem;color:var(--muted)}
+  .foot a{color:#c9d1ff;font-weight:600;transition:color .2s}
+  .foot a:hover{color:#fff}
+  .foot-links{display:flex;gap:20px;align-items:center}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:900px){
+    .grid{grid-template-columns:repeat(2,1fr)}
+  }
+  @media (max-width:640px){
+    .nav-links{display:none}
+    .nav{padding:10px 14px}
+    .brand{font-size:.94rem}
+    .nav .btn{padding:9px 14px;font-size:.83rem}
+    .hero{padding:48px 0 26px}
+    .hero-cta .btn{width:100%}
+    .grid{grid-template-columns:1fr}
+    .steps{padding-left:14px}
+    .steps::before{left:14px}
+    .step{padding-left:40px}
+    section{padding:48px 0}
+    .cta-card{padding:44px 20px;border-radius:18px}
+    .foot{flex-direction:column;text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<div class="nav-outer">
+  <div class="wrap">
+    <nav class="nav">
+      <div class="brand">
+        <div class="brand-mark">🧸</div>
+        <span>CH5&nbsp;Trainer</span>
+      </div>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <a class="btn btn-primary" href="https://gitscore.cc">Download</a>
+    </nav>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="pill"><span class="dot"></span> Poppy Playtime · Chapter 5</div>
+    <h1>Dominate <span class="grad">Poppy Playtime Chapter&nbsp;5</span> with a full-featured trainer</h1>
+    <p class="lede">
+      Godmode, infinite batteries, one-hit kill, speed hack, item ESP, and a built-in Lua injector
+      for custom cheats — a single lightweight Windows tool for the Playtime Co. factory.
+    </p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="https://gitscore.cc">⬇ Download Trainer</a>
+      <a class="btn btn-ghost" href="https://gitscore.cc">★ View on GitHub</a>
+    </div>
+    <div class="chips">
+      <div class="chip"><em>📥</em> <b>48,200+</b> downloads</div>
+      <div class="chip"><em>🏷️</em> Version <b>v2.4.1</b></div>
+      <div class="chip"><em>🪟</em> <b>Windows 10 / 11</b></div>
+      <div class="chip"><em>⚖️</em> <b>Free &amp; open source</b></div>
+    </div>
+  </div>
+</header>
+
+<section id="features">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Features</div>
+      <h2>Everything you need to survive the factory</h2>
+      <p>Six core modules, hotkey-driven and toggleable in-game through a compact overlay.</p>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <div class="ico">🛡️</div>
+        <h3>Godmode</h3>
+        <p>Ignore damage from Huggy Wuggy, Mommy Long Legs, and every Chapter 5 encounter. Health and stamina stay pinned while you explore.</p>
+      </article>
+      <article class="card">
+        <div class="ico">🔋</div>
+        <h3>Infinite Batteries</h3>
+        <p>Your GrabPack never runs dry. Flashlight, hand modules, and puzzle batteries stay fully charged for the entire playthrough.</p>
+      </article>
+      <article class="card">
+        <div class="ico">💥</div>
+        <h3>One-Hit Kill</h3>
+        <p>Drop any hostile toy in a single hit. Great for clearing chase sequences quickly or practicing speedrun routes without resets.</p>
+      </article>
+      <article class="card">
+        <div class="ico">⚡</div>
+        <h3>Speed Hack</h3>
+        <p>Adjustable movement multiplier from 1.5× to 5×. Tune walk and sprint speed with a slider or hotkey — no game files modified.</p>
+      </article>
+      <article class="card">
+        <div class="ico">👁️</div>
+        <h3>Item ESP</h3>
+        <p>Highlight collectibles, tapes, key items, and hidden vents through walls with color-coded outlines and distance labels.</p>
+      </article>
+      <article class="card">
+        <div class="ico">🧪</div>
+        <h3>Lua Injector</h3>
+        <p>Load your own scripts at runtime. Write custom cheats, bind them to keys, and share them with the community — full API documented.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">How it works</div>
+      <h2>Running in under a minute</h2>
+      <p>No installers, no bundled adware — just download, launch, and attach.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <h3>Download and extract</h3>
+        <p>Grab the latest release from <a href="https://gitscore.cc" style="color:#9fb0ff">gitscore.cc</a> and unzip it to any folder. The archive contains the trainer executable and the <code>lua/</code> scripts directory.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h3>Launch the game, then the trainer</h3>
+        <p>Start Poppy Playtime Chapter 5 on Steam, then run <code>ch5_trainer.exe</code> as administrator. The overlay attaches automatically to the game process.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h3>Toggle cheats with hotkeys</h3>
+        <p>Use <code>F1</code> for the menu, <code>F2</code>–<code>F7</code> for individual toggles. Drop custom <code>.lua</code> files into the scripts folder and reload them from the injector tab.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">FAQ</div>
+      <h2>Questions before you download</h2>
+      <p>Common things players ask about the Chapter 5 trainer.</p>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>Is the trainer safe to use? <span class="plus"></span></summary>
+        <div class="faq-body">
+          The project is fully open source, so every line can be reviewed on the repository. Builds are compiled from the published source and contain no telemetry, no bundled installers, and no auto-updaters. Always download from the official gitscore.cc link rather than mirrors.
+        </div>
+      </details>
+      <details>
+        <summary>Will it work with the Steam version of Chapter 5? <span class="plus"></span></summary>
+        <div class="faq-body">
+          Yes. The trainer targets the current Steam build for Windows 10 and 11, including the 64-bit executable. After a game patch, offsets may need an update — check the release notes for a version matching your build.
+        </div>
+      </details>
+      <details>
+        <summary>Can I get banned for using it? <span class="plus"></span></summary>
+        <div class="faq-body">
+          Poppy Playtime Chapter 5 is a single-player story game with no VAC-protected multiplayer, so the trainer is intended purely for solo play, practice, and exploration. That said, use it at your own risk and avoid running it in any online-enabled mode.
+        </div>
+      </details>
+      <details>
+        <summary>How do I write custom Lua cheats? <span class="plus"></span></summary>
+        <div class="faq-body">
+          Place a <code>.lua</code> file in the <code>lua/</code> folder next to the executable. The injector exposes hooks for player stats, entity lists, and input binding — full documentation and example scripts ship with the download.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta-card">
+      <h2>Ready to take on Playtime Co.?</h2>
+      <p>Download the Poppy Playtime Chapter 5 trainer and unlock godmode, infinite batteries,
