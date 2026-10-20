@@ -1,0 +1,8 @@
+# Runtime validation schema for feature flags
+godmode: { type: bool, default: false }
+infinite_battery: { type: bool, default: true }
+huggy_esp: { type: bool, default: false }
+grabpack_range: { type: float, min: 1.0, max: 12.0, default: 4.5 }
+speed_multiplier: { type: float, min: 1.0, max: 5.0, default: 1.0 }
+no_clip: { type: bool, default: false }
+unlock_chapter_skins: { type: bool, default: false }
