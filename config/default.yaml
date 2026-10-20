@@ -1,0 +1,32 @@
+# Poppy Playtime - Chapter 5 Trainer :: default profile
+game:
+  process_name: "PoppyPlaytime_Ch5.exe"
+  module: "PoppyPlaytime_Ch5-Win64-Shipping.exe"
+  build_hint: "1.0.3.114"
+
+attach:
+  backend: "pymem"          # pymem | ctypes | handle
+  poll_ms: 250
+  require_nolauncher: true
+
+overlay:
+  enabled: true
+  fps_cap: 60
+  font: "Consolas"
+  hotkeys:
+    toggle_menu: "INSERT"
+    teleport_waypoint: "F6"
+    noclip: "F7"
+
+features:
+  godmode: true
+  infinite_battery: true
+  huggy_esp: true
+  grabpack_range: 4.5
+  speed_multiplier: 1.75
+  no_clip: false
+  unlock_chapter_skins: false
+
+logging:
+  level: "INFO"
+  file: "logs/trainer.log"
