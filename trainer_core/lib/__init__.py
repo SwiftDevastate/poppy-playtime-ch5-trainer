@@ -1,0 +1,1 @@
+"""Shared helpers — logging, entity parsing, teleport math."""
